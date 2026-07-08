@@ -1,3 +1,7 @@
+[![Monthly Downloads](https://img.shields.io/npm/dm/seo-slug.svg)](https://www.npmjs.com/package/seo-slug)
+[![NPM](https://img.shields.io/npm/v/seo-slug.svg 'NPM package version')](https://www.npmjs.com/package/seo-slug)
+[![CI](https://github.com/annexare/seo-slug/actions/workflows/ci.yml/badge.svg)](https://github.com/annexare/seo-slug/actions/workflows/ci.yml)
+
 # seo-slug
 
 SEO-friendly slugs with **official Ukrainian transliteration**. Tiny, zero-dependency, TypeScript, ESM.

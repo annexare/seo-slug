@@ -1,6 +1,6 @@
 {
   "name": "seo-slug",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SEO-friendly slugs with official Ukrainian transliteration (КМУ №55/2010 default, ДСТУ 9112:2021 optional). Tiny, zero-dependency, ESM-only TypeScript.",
   "license": "MIT",
   "type": "module",
