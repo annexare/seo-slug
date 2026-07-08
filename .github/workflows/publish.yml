@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      # npm Trusted Publishing (OIDC) — no NPM_TOKEN: configure GitHub Actions as
+      # a trusted publisher on the package settings after the first local publish.
       id-token: write
     steps:
       - uses: actions/checkout@v6
@@ -20,5 +22,3 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run build
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
