@@ -1,0 +1,27 @@
+{
+	"name": "seo-slug",
+	"version": "0.1.0",
+	"description": "SEO-friendly slugs with official Ukrainian transliteration (КМУ №55/2010 default, ДСТУ 9112:2021 optional). Tiny, zero-dependency, TypeScript.",
+	"type": "module",
+	"license": "MIT",
+	"author": "Dmytro (https://github.com/dmythro)",
+	"repository": "github:annexare/seo-slug",
+	"keywords": ["slug", "slugify", "seo", "transliteration", "ukrainian", "ukraine", "kmu-55", "dstu-9112", "romanization", "url"],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"files": ["dist", "README.md", "LICENSE"],
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"check-types": "tsc --noEmit",
+		"test": "bun test",
+		"prepublishOnly": "bun run check-types && bun test && bun run build"
+	},
+	"devDependencies": {
+		"typescript": "^5.9.0",
+		"@types/bun": "^1.2.0"
+	}
+}
