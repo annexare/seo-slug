@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: '*.{ts,json,md}'
+      run: bunx biome check --write --no-errors-on-unmatched {staged_files} && git update-index --again
+    types:
+      run: bun run check-types
+pre-push:
+  commands:
+    test:
+      run: bun test
