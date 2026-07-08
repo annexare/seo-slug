@@ -117,7 +117,7 @@ describe('slug', () => {
 
   test('mixed-language and messy input', () => {
     expect(slug('  Björk & Гурт «Океан Ельзи»: LIVE!! ')).toBe(
-      'bjork-hurt-okean-elzy-live',
+      'bjork-and-hurt-okean-elzy-live',
     )
     expect(slug('C++ / C# --- 100%')).toBe('c-c-100')
     expect(slug('')).toBe('')

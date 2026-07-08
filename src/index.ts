@@ -22,6 +22,9 @@ export interface SlugOptions {
   lowercase?: boolean
   /** Maximum length — cut at the last full word within it. Default unlimited. */
   maxLength?: number
+  /** What `&` becomes — a real word, not silence (`AC & DC → ac-and-dc`).
+   *  Default `'and'`; pass `''` to drop it. */
+  ampersand?: string
 }
 
 /** Latin-extended characters NFKD can't fold (no combining-mark decomposition). */
@@ -76,14 +79,22 @@ export const fold = (input: string): string =>
  * slug('Œuvre für São Paulo')     // 'oeuvre-fur-sao-paulo'
  * ```
  */
+/** In-word apostrophes glue their word (`Gojira's → gojiras`) — the common
+ *  slugger behavior (github-slugger, slugify) and the KMU treatment of the
+ *  Ukrainian apostrophe extended to Latin text. */
+const IN_WORD_APOSTROPHE = /([a-zA-Z0-9])['’ʼ]+(?=[a-zA-Z])/g
+
 export const slug = (input: string, options: SlugOptions = {}): string => {
   const {
     scheme = 'kmu-2010',
     separator = '-',
     lowercase = true,
     maxLength,
+    ampersand = 'and',
   } = options
   let text = fold(transliterateUk(input, scheme))
+    .replace(IN_WORD_APOSTROPHE, '$1')
+    .replace(/&/g, ampersand ? ` ${ampersand} ` : ' ')
   if (lowercase) text = text.toLowerCase()
   const words = text.match(/[a-zA-Z0-9]+/g) ?? []
   let out = words.join(separator)
