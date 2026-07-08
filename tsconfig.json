@@ -4,16 +4,13 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "types": ["bun"],
-    "declaration": true,
-    "declarationDir": "dist",
-    "emitDeclarationOnly": true,
-    "outDir": "dist",
-    "rootDir": "src",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "resolveJsonModule": true
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }
